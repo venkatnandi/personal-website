@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="luffy-removebg-preview (1).png">
+    <style>
+        /* CSS for About Page */
+        .about-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-page {
+            padding: 100px 20px;
+            text-align: center;
+            margin: 0 auto; /* Center horizontally */
+            max-width: 800px; /* Set maximum width */
+            opacity: 0; /* Initially hide the element */
+            transform: translateY(50px); /* Move the element down */
+            transition: opacity 1s, transform 1s; /* Add transition effect */
+        }
+
+        .about-page.show {
+            opacity: 1; /* Show the element */
+            transform: translateY(5); /* Move the element back to its original position */
+        }
+
+        .about-page h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color:orange;
+        }
+
+        .about-page p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .about-page a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold; /* Add bold font weight */
+        }
+
+        .about-page a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
+        <div class="detel" id="home">
+            <h1>I'm Venkat <span>Nandi</span></h1>
+            <p>This is my official Curriculum vitae</p>
+            <a href="Nandi Venkat Sai (CV).pdf" download>DOWNLOAD CV</a>
+        </div>
+        <div class="images">
+            <img src="Me.png" class="me">
+        </div>
+    </div>
+
+    <!-- About Page Content -->
+    <div class="about-page" id="about">
+        <div class="about-box">
+            <h1>About Me</h1>
+            <p>I'm Venkat Nandi, a passionate student at Anurag University. I have basic knowledge of web development technologies like HTML, CSS, and JavaScript. I love creating beautiful, responsive websites that provide a great user experience.</p>
+            <p> I have certifications in communication skills, presentation skills, etc. I am constantly learning and exploring new technologies to enhance my skills and stay updated with the latest trends in this GenZ.</p>
+            <p>Outside of work, I enjoy being myself, watching movies, doing workouts, meditation, etc. Feel free to contact me if you have any questions or would like to collaborate on a project.</p>
+            <p>You can also download my <a href="Nandi Venkat Sai (CV).pdf" download><b>CV</b></a> to learn more about my education and work experience.</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript for smooth scrolling and animation -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            var aboutPage = document.querySelector('.about-page');
+            var aboutPagePosition = aboutPage.getBoundingClientRect().top;
+            var screenHeight = window.innerHeight;
+
+            if (aboutPagePosition < screenHeight * 0.75) { // Show the About Me section when it is 75% visible
+                aboutPage.classList.add('show');
+            }
+        });
+    </script>
+</body>
+</html>
